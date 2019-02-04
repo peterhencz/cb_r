@@ -1,18 +1,26 @@
 import React, { Component } from "react";
+import Input from "./Input";
+import Header from "./Header";
 import "../styles/Card.css";
 
 class Card extends Component {
   constructor() {
     super();
-    this.state = {
-      hexcode: "#f4baba",
-    };
   }
+
+  getColor = hexcolor => {
+    this.setState({
+      hexcolor,
+    });
+  };
+
   render() {
+    const hexcolor = this.props;
+    console.log("card: ", hexcolor, this.state);
     return (
       <div className="card">
-        <h1>🥭</h1>
-        <p>{this.state.hexcode}</p>
+        <div className="colorbogyo" />
+        <h1>{() => this.props.getColor()}</h1>
       </div>
     );
   }

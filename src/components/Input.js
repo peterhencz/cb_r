@@ -1,14 +1,10 @@
-import React, { Component } from "react";
+import React from "react";
 import "../styles/Input.css";
 
-class Input extends Component {
-  render() {
-    return (
-      <div className="input">
-        <input placeholder="hex code" />
-      </div>
-    );
-  }
-}
+const Input = props => (
+  <div className="input">
+    <input className="input.style" {...props} />
+  </div>
+);
 
 export default Input;

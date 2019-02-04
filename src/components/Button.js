@@ -5,7 +5,7 @@ class Button extends Component {
   constructor() {
     super();
     this.state = {
-      hexcode: "#f4baba",
+      hexcolor: "#f4baba",
     };
   }
   render() {
