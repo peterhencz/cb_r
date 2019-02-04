@@ -1,9 +1,13 @@
 import React, { Component } from "react";
-import "./input.css";
+import "../styles/Input.css";
 
 class Input extends Component {
   render() {
-    return <input />;
+    return (
+      <div className="input">
+        <input placeholder="hex code" />
+      </div>
+    );
   }
 }
 

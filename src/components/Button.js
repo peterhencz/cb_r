@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import "../styles/Card.css";
+import "../styles/Button.css";
 
-class Card extends Component {
+class Button extends Component {
   constructor() {
     super();
     this.state = {
@@ -10,12 +10,11 @@ class Card extends Component {
   }
   render() {
     return (
-      <div className="card">
-        <h1>🥭</h1>
-        <p>{this.state.hexcode}</p>
+      <div className="button">
+        <button>ok</button>
       </div>
     );
   }
 }
 
-export default Card;
+export default Button;
