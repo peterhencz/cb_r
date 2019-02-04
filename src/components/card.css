@@ -1,0 +1,19 @@
+.card {
+  display: flex;
+  background-color: #fff;
+  flex-direction: row;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  margin: 2em;
+  padding: 2em;
+  width: 9em;
+  height: 13em;
+  border-radius: 0.3em;
+  box-shadow: 0em 0em 1em 0.3em rgb(0, 0, 0, 0.1);
+}
+
+h1 {
+  font-size: 3em;
+}
