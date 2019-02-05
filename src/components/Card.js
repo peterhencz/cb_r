@@ -1,7 +1,6 @@
-import React, { Component } from "react";
-import Input from "./Input";
-import Header from "./Header";
-import "../styles/Card.css";
+import React, { Component } from 'react';
+
+import '../styles/Card.css';
 
 class Card extends Component {
   constructor() {
@@ -16,7 +15,7 @@ class Card extends Component {
 
   render() {
     const hexcolor = this.props;
-    console.log("card: ", hexcolor, this.state);
+    console.log('card: ', hexcolor, this.state);
     return (
       <div className="card">
         <div className="colorbogyo" />

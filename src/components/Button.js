@@ -1,11 +1,11 @@
-import React, { Component } from "react";
-import "../styles/Button.css";
+import React, { Component } from 'react';
+import '../styles/Button.css';
 
 class Button extends Component {
   constructor() {
     super();
     this.state = {
-      hexcolor: "#f4baba",
+      hexcolor: '#f4baba',
     };
   }
   render() {
