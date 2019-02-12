@@ -11,7 +11,7 @@ class Button extends Component {
   render() {
     return (
       <div className="button">
-        <button>ok</button>
+        <button>cica</button>
       </div>
     );
   }
