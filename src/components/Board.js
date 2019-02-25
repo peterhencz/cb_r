@@ -1,20 +1,36 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { getColor } from '../actions';
 import '../styles/Board.css';
+import Button from './Button';
 
 class Board extends Component {
-  state = {
-    color: '',
-  };
+  state = {};
+
+  // componentDidMount() {
+  //   this.props.getColor();
+  // }
 
   render() {
-    return <div className="board" />;
+    return (
+      <div className="board">
+        <Button onClick={this.props.getColor}>cica</Button>
+      </div>
+    );
   }
 }
 
-const mapDispatchToProps = {};
+const mapStateTopProps = state => {
+  return {
+    color: state.color,
+  };
+};
+
+const mapDispatchToProps = {
+  getColor,
+};
 
 export default connect(
-  null,
+  mapStateTopProps,
   mapDispatchToProps
 )(Board);

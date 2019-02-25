@@ -23,6 +23,7 @@ export const postColor = color => dispatch => {
 };
 
 export const getColor = dispatch => {
+  console.log('getColor');
   const url = `${BASE_URL}/all`;
   fetch(url, {
     mode: 'cors',
@@ -35,7 +36,7 @@ export const getColor = dispatch => {
     .then(responsJson => {
       dispatch({
         type: GET_COLOR,
-        payload: responsJson,
+        payload: responsJson.data,
       });
     })
     .catch(error => console.error('Error', error));

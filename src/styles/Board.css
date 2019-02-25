@@ -1,4 +1,5 @@
 .board {
+  margin-top: 3em;
   border: solid 1px red;
   width: 100%;
   height: 100%;

@@ -3,7 +3,7 @@ import '../styles/Button.css';
 
 const Button = props => (
   <div className="button">
-    <button {...props}>cica</button>
+    <button {...props} />
   </div>
 );
 
