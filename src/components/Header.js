@@ -1,51 +1,41 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import Input from '../components/Input.js';
 import Button from '../components/Button';
-import * as actions from '../actions';
+import { postColor } from '../actions';
 import '../styles/Header.css';
 
 class Header extends Component {
-  constructor() {
-    super();
-    this.state = {
-      color: '',
-    };
-  }
-
-  getColor = color => {
-    this.setState({ color: color });
+  state = {
+    color: '',
   };
 
-  getColorClick = color => {
-    console.log('getColorClick');
-    console.log(this.state.color);
+  handleInputChange = event => {
+    this.setState({
+      [event.target.name]: event.target.value,
+    });
+  };
+
+  handleColorClick = color => {
     this.props.postColor(this.state.color);
   };
 
   render() {
     return (
       <div className="header">
-        <Input placeholder="hex code" onChange={color => this.getColor(color.target.value)} />
-        {console.log('cica: ', this.state)}
-        <Button onClick={this.getColorClick} />
+        <Input name="color" placeholder="hex code" onChange={this.handleInputChange} />
+        <Button onClick={this.handleColorClick} />
         {this.state.color}
       </div>
     );
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  const { postColor } = actions;
-  return bindActionCreators(
-    {
-      postColor,
-    },
-    dispatch
-  );
+const mapDispatchToProps = {
+  postColor,
 };
+
 export default connect(
   null,
-  { mapDispatchToProps }
+  mapDispatchToProps
 )(Header);

@@ -1,1 +1,2 @@
-export const POST_COLOR = 'post_color';
+export const POST_COLOR = 'postColor';
+export const GET_COLOR = 'getColor';

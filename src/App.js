@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import reducers from './reducers';
 import ReduxThunk from 'redux-thunk';
-import Card from './components/Card.js';
+import Board from './components/Board.js';
 import Header from './components/Header.js';
 import './App.css';
 
@@ -15,7 +15,7 @@ class App extends Component {
       <Provider store={store}>
         <div className="App">
           <Header />
-          <Card />
+          <Board />
         </div>
       </Provider>
     );
