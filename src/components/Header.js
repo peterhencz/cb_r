@@ -1,33 +1,41 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import Input from '../components/Input.js';
 import Button from '../components/Button';
-
+import { postColor } from '../actions';
 import '../styles/Header.css';
 
 class Header extends Component {
-  constructor() {
-    super();
-    this.state = {
-      hexcolor: '',
-    };
-  }
+  state = {
+    color: '',
+  };
 
-  getColor = hexcolor => {
+  handleInputChange = event => {
     this.setState({
-      hexcolor,
+      [event.target.name]: event.target.value,
     });
+  };
+
+  handleColorClick = color => {
+    this.props.postColor(this.state.color);
   };
 
   render() {
     return (
       <div className="header">
-        <Input placeholder="hex code" onChange={hexcolor => this.getColor(hexcolor.target.value)} />
-        {console.log('cica: ', this.state)}
-        <Button onClick={this.getColor} />
-        {this.state.hexcolor}
+        <Input name="color" placeholder="hex code" onChange={this.handleInputChange} />
+        <Button onClick={this.handleColorClick} />
+        {this.state.color}
       </div>
     );
   }
 }
 
-export default Header;
+const mapDispatchToProps = {
+  postColor,
+};
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(Header);
