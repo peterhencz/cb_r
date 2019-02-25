@@ -7,19 +7,12 @@ class Card extends Component {
     super();
   }
 
-  getColor = hexcolor => {
-    this.setState({
-      hexcolor,
-    });
-  };
-
   render() {
-    const hexcolor = this.props;
-    console.log('card: ', hexcolor, this.state);
+    console.log('card props: ', this.props);
     return (
       <div className="card">
         <div className="colorbogyo" />
-        <h1>{() => this.props.getColor()}</h1>
+        <h1>{this.props.hexcolor}</h1>
       </div>
     );
   }

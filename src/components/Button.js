@@ -1,20 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import '../styles/Button.css';
 
-class Button extends Component {
-  constructor() {
-    super();
-    this.state = {
-      hexcolor: '#f4baba',
-    };
-  }
-  render() {
-    return (
-      <div className="button">
-        <button>cica</button>
-      </div>
-    );
-  }
-}
+const Button = props => (
+  <div className="button">
+    <button {...props}>cica</button>
+  </div>
+);
 
 export default Button;
