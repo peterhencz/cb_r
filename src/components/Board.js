@@ -15,7 +15,7 @@ class Board extends Component {
 
   getAllColor = () => {
     const { color } = this.props;
-    this.setState({ colors: color });
+    this.setState({ colors: color.color[0].color });
     console.log(this.state);
     console.log('cica: ', this.state.colors);
   };
@@ -28,9 +28,9 @@ class Board extends Component {
 
   render() {
     return (
-      <div className="board">
+      <div className="board" style={{ backgroundColor: `${this.state.colors} ` }}>
         <Button onClick={this.getAllColor}>getColor</Button>
-        {this.state.color}
+        {this.state.colors}
         <Card />
       </div>
     );
