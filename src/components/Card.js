@@ -4,7 +4,6 @@ import '../styles/Card.css';
 
 class Card extends Component {
   render() {
-    console.log('card props: ', this.props);
     return (
       <div className="card">
         <div className="colorbogyo">

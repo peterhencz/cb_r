@@ -6,18 +6,25 @@ import Button from './Button';
 import Card from './Card';
 
 class Board extends Component {
-  state = { color: '' };
+  state = {};
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.getColor();
     console.log(this.state);
   }
 
   getAllColor = () => {
     const { color } = this.props;
-    this.setState({ color: color.color[0].color });
-    console.log('cica: ', this.state.color);
+    this.setState({ colors: color });
+    console.log(this.state);
+    console.log('cica: ', this.state.colors);
   };
+
+  oneColor = () =>
+    this.state.color.map(
+      name => this.setState({ onecolor: name }),
+      console.log(this.state.oneColor)
+    );
 
   render() {
     return (
