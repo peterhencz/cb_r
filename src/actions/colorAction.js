@@ -1,4 +1,4 @@
-import { POST_COLOR, GET_COLOR } from './types';
+import { POST_COLOR, GET_COLORS } from './types';
 import { BASE_URL } from '../utilities/constants';
 
 export const postColor = color => dispatch => {
@@ -23,7 +23,7 @@ export const postColor = color => dispatch => {
 };
 
 export const load_colors = color => ({
-  type: GET_COLOR,
+  type: GET_COLORS,
   payload: color,
 });
 
