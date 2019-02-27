@@ -22,22 +22,17 @@ export const postColor = color => dispatch => {
   });
 };
 
-export const getColor = dispatch => {
+export const load_colors = color => ({
+  type: GET_COLOR,
+  payload: color,
+});
+
+export const getColor = () => {
   console.log('getColor');
   const url = `${BASE_URL}/all`;
-  fetch(url, {
-    mode: 'cors',
-    method: 'get',
-    header: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json; charset=UTF-8',
-    },
-  })
-    .then(responsJson => {
-      dispatch({
-        type: GET_COLOR,
-        payload: responsJson.data,
-      });
-    })
-    .catch(error => console.error('Error', error));
+  return dispatch => {
+    return fetch(url)
+      .then(response => response.json())
+      .then(json => dispatch(load_colors(json)));
+  };
 };

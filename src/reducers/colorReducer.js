@@ -1,8 +1,8 @@
 import { POST_COLOR, GET_COLOR } from '../actions/types';
 
-const defaultState = [];
+const intitialState = { color: [] };
 
-export default (state = defaultState, { type, payload }) => {
+export default (state = intitialState, { type, payload }) => {
   switch (type) {
     case POST_COLOR:
       return {
@@ -11,7 +11,8 @@ export default (state = defaultState, { type, payload }) => {
       };
     case GET_COLOR:
       return {
-        payload,
+        ...state,
+        color: payload,
       };
     default:
       return state;
