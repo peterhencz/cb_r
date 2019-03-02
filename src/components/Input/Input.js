@@ -1,9 +1,9 @@
 import React from 'react';
 
-import '../styles/Input.css';
+import './Input.css';
 
 const Input = props => (
-  <div className="input">
+  <div className="input-form">
     <input className="input.style" {...props} />
   </div>
 );

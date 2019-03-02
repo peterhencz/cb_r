@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getColor } from '../actions';
-import '../styles/Board.css';
-import Button from './Button';
-import Card from './Card';
+import { getColor } from '../../actions';
+import './Board.css';
+import Button from '../Button/Button';
+import Card from '../Card/Card';
 
 class Board extends Component {
   state = {};
@@ -27,10 +27,9 @@ class Board extends Component {
     );
 
   render() {
+    console.log(this.state.colors);
     return (
-      <div className="board" style={{ backgroundColor: `${this.state.colors} ` }}>
-        <Button onClick={this.getAllColor}>getColor</Button>
-        {this.state.colors}
+      <div>
         <Card />
       </div>
     );
