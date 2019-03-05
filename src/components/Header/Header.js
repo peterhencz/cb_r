@@ -24,7 +24,7 @@ class Header extends Component {
     return (
       <div className="header">
         <Input name="color" placeholder="hex code" onChange={this.handleInputChange} />
-        <Button onClick={this.handleColorClick} />
+        <Button onClick={this.handleColorClick}>></Button>
       </div>
     );
   }
