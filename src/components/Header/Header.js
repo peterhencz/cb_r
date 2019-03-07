@@ -41,7 +41,7 @@ class Header extends Component {
     return (
       <div className="header">
         <Input
-          inputStyle={this.state.inputStyle}
+          input-style={this.state.inputStyle}
           name="color"
           placeholder="hex code"
           onChange={this.handleInputChange}

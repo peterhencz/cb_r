@@ -5,8 +5,9 @@ import { createStore, applyMiddleware } from 'redux';
 import reducers from './reducers';
 import ReduxThunk from 'redux-thunk';
 
-import Panel from './pages/Panel';
-import Login from './pages/Login';
+import Panel from './pages/panel';
+import Login from './pages/login';
+import Registration from './pages/registration';
 
 import './App.css';
 
@@ -20,6 +21,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={Panel} />
             <Route exact path="/login" component={Login} />
+            <Route exact path="/registration" component={Registration} />
           </Switch>
         </Router>
       </Provider>
