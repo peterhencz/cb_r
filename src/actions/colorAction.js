@@ -22,17 +22,12 @@ export const postColor = color => dispatch => {
   });
 };
 
-export const load_colors = color => ({
-  type: GET_COLORS,
-  payload: color,
-});
-
-export const getColor = () => {
-  console.log('getColor');
+export const getColors = () => {
+  console.log('getColors');
   const url = `${BASE_URL}/all`;
   return dispatch => {
     return fetch(url)
       .then(response => response.json())
-      .then(json => dispatch(load_colors(json)));
+      .then(colors => dispatch({ type: GET_COLORS, payload: colors }));
   };
 };
