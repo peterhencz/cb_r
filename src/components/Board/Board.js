@@ -13,31 +13,34 @@ class Board extends Component {
     this.state = {};
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.props.getColors();
     console.log(this.props.getColors());
   }
 
   renderColors(colors) {
-    console.log(colors);
     if (colors) {
-      return colors.map(<div>cica</div>);
+      return Object.entries(colors)
+        .sort((a, b) => b[0] - a[0])
+        .map(([_id, colors], id) => (
+          <div>
+            <Card id={_id} color={colors.color} />
+          </div>
+        ));
     } else {
-      console.log('kisfaszom');
+      console.log('loading');
     }
   }
 
   render() {
     const { colors } = this.props;
-    console.log(colors);
-    return <div>{this.renderColors()}</div>;
+    return <div className="board">{this.renderColors(colors)}</div>;
   }
 }
 
-const mapStateTopProps = state => {
-  console.log(state);
+const mapStateToProps = state => {
   return {
-    colors: state.colors,
+    colors: state.color.colors,
   };
 };
 
@@ -51,6 +54,6 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default connect(
-  mapStateTopProps,
+  mapStateToProps,
   mapDispatchToProps
 )(Board);

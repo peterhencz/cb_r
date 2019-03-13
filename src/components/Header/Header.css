@@ -10,4 +10,5 @@
   height: 4em;
   margin: 0;
   background-color: #e3e5e7;
+  z-index: 1;
 }

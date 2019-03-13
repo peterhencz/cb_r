@@ -14,3 +14,26 @@
   z-index: 0;
   animation: slide-in-elliptic-top-fwd 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
+
+.item-hexcode {
+  padding: 1vw;
+  margin: 0.8vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 150px;
+  text-transform: lowercase;
+  transition: all 0.4s ease;
+  border-radius: 106px 98px 94px 98px;
+  animation: bogyo 10s ease-in-out alternate infinite;
+}
+
+@keyframes bogyo {
+  50% {
+    border-radius: 86px 98px 108px 80px / 112px 89px 94px 101px;
+  }
+  100% {
+    border-radius: 97px 80px 106px 82px / 91px 88px 93px 107px;
+  }
+}

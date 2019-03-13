@@ -5,9 +5,8 @@ class Card extends Component {
   render() {
     return (
       <div className="card">
-        <div className="colorbogyo">
-          <h1>{this.props.color}</h1>
-        </div>
+        <div className="item-hexcode" style={{ background: this.props.color }} />
+        <h1>{this.props.color}</h1>
       </div>
     );
   }
