@@ -21,7 +21,13 @@
 .card:hover {
   box-shadow: 0 10px 20px -20px;
   transform: scale(1.02);
+  cursor: grab;
 }
+
+.card:active {
+  cursor: grabbing;
+}
+
 .item-hexcode {
   padding: 1vw;
   margin: 0.8vw;
@@ -34,8 +40,8 @@
   border-radius: 106px 98px 94px 98px;
   animation: bogyo 10s ease-in-out alternate infinite;
 }
-/* 
-@keyframes bogyo {
+
+/* @keyframes bogyo {
   50% {
     border-radius: 86px 98px 108px 80px / 112px 89px 94px 101px;
   }
