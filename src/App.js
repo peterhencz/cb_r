@@ -5,7 +5,7 @@ import { createStore, applyMiddleware } from 'redux';
 import reducers from './reducers';
 import ReduxThunk from 'redux-thunk';
 
-import Panel from './pages/panel';
+import MyBoard from './pages/my_board';
 import Login from './pages/login';
 import Registration from './pages/registration';
 
@@ -19,7 +19,7 @@ class App extends Component {
       <Provider store={store}>
         <Router>
           <Switch>
-            <Route exact path="/" component={Panel} />
+            <Route exact path="/my_board" component={MyBoard} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/registration" component={Registration} />
           </Switch>

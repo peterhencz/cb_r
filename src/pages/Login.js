@@ -10,7 +10,9 @@ class Login extends Component {
         <div className="input-form ">
           <Input placeholder="email" />
           <Input placeholder="pass" />
-          <Button>></Button>
+          <NavLink to="/my_board">
+            <Button>></Button>
+          </NavLink>
         </div>
         <div>
           <NavLink to="/registration">

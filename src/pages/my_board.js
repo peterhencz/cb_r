@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Board from '../components/Board/Board';
 import Header from '../components/Header/Header';
 
-class Panel extends Component {
+class MyBoard extends Component {
   render() {
     return (
       <div className="App">
@@ -13,4 +13,4 @@ class Panel extends Component {
   }
 }
 
-export default Panel;
+export default MyBoard;

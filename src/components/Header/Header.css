@@ -3,7 +3,8 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  position: absolute;
+  margin-top: 0px;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;

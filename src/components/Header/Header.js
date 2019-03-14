@@ -9,6 +9,7 @@ import './Header.css';
 class Header extends Component {
   state = {
     color: '',
+    tagsholder: 'sky, blue, light, etc...',
     inputStyle: 'input',
     errorMessage: '',
   };
@@ -40,10 +41,18 @@ class Header extends Component {
     console.log('this.state: ', this.state);
     return (
       <div className="header">
+        add your color
         <Input
           input-style={this.state.inputStyle}
           name="color"
           placeholder="hex code"
+          onChange={this.handleInputChange}
+        />
+        with tags
+        <Input
+          input-style={this.state.inputStyle}
+          name="tag"
+          placeholder={this.state.tagsholder}
           onChange={this.handleInputChange}
         />
         <Button onClick={this.handleColorClick}>></Button>

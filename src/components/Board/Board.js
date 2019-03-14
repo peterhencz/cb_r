@@ -13,7 +13,7 @@ class Board extends Component {
     this.state = {};
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.getColors();
     console.log(this.props.getColors());
   }
