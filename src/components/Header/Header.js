@@ -5,11 +5,12 @@ import Button from '../Button/Button.js';
 import { inputValidChecker } from '../InputValidation';
 import { postColor } from '../../actions';
 import './Header.css';
+import Strings from '../Strings.js';
 
 class Header extends Component {
   state = {
     color: '',
-    tagsholder: 'sky, blue, light, etc...',
+    tagsholder: `${Strings('tag_placeholder')}`,
     inputStyle: 'input',
     errorMessage: '',
   };
@@ -41,14 +42,14 @@ class Header extends Component {
     console.log('this.state: ', this.state);
     return (
       <div className="header">
-        add your color
+        {Strings('save_color')}
         <Input
           input-style={this.state.inputStyle}
           name="color"
-          placeholder="hex code"
+          placeholder={Strings('hexcode')}
           onChange={this.handleInputChange}
         />
-        with tags
+        {Strings('with_tags')}
         <Input
           input-style={this.state.inputStyle}
           name="tag"
