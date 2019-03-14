@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 // import { getColors } from '../../actions/colorAction';
 import { getColors } from '../../actions/colorAction';
 import './Board.css';
-import Button from '../Button/Button';
+
 import Card from '../Card/Card';
 
 class Board extends Component {

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+
 import Input from '../Input/Input.js';
 import Button from '../Button/Button.js';
 import { inputValidChecker } from '../InputValidation';
