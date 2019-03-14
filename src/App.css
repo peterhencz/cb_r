@@ -18,7 +18,8 @@ html {
 
 .App {
   min-width: 300px;
-  height: 100vh;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   background-color: #edeeef;
   display: flex;
   align-items: center;

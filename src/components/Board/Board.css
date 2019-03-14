@@ -1,6 +1,7 @@
 .board {
+  height: 100vh;
   margin: 5em;
-  padding-top: 5em;
+  /* padding-top: 5em; */
   display: flex;
   flex-flow: row wrap;
   flex-direction: row;
