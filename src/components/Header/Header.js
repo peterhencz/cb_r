@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
+import Palette from '@material-ui/icons/Palette';
 import Input from '../Input/Input.js';
 import Button from '../Button/Button.js';
 import { inputValidChecker } from '../InputValidation';
@@ -58,6 +58,8 @@ class Header extends Component {
           onChange={this.handleInputChange}
         />
         <Button onClick={this.handleColorClick}>></Button>
+        {Strings('picker_text')}
+        <Palette />
       </div>
     );
   }
