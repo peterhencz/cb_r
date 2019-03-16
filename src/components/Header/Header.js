@@ -45,6 +45,7 @@ class Header extends Component {
   };
 
   render() {
+    const buttonClass = this.state.colorIsValid ? 'button ' : 'button button-disabled';
     console.log('this.state: ', this.state);
     console.log('colorinputstyle: ', this.state.colorInputStyle);
     console.log('buttonClass: ', this.state.buttonClass);
@@ -59,14 +60,14 @@ class Header extends Component {
         />
         {Strings('with_tags')}
         <Input
-          inputStyle={this.state.inputStyle}
+          inputStyle="input"
           name="tag"
           placeholder={this.state.tagsholder}
           onChange={this.handleInputChange}
         />
         <Button
           onClick={this.handleColorClick}
-          className={this.state.buttonClass}
+          className={buttonClass}
           disabled={!this.state.colorIsValid}>
           >
         </Button>
