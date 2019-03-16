@@ -6,7 +6,7 @@ import Button from '../components/Button/Button';
 class Login extends Component {
   render() {
     return (
-      <div className="App">
+      <div>
         <div className="input-form ">
           <Input placeholder="email" />
           <Input placeholder="pass" />

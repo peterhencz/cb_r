@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Palette from '@material-ui/icons/Palette';
+import { ChromePicker } from 'react-color';
 import Input from '../Input/Input.js';
 import Button from '../Button/Button.js';
 import { inputValidChecker } from '../InputValidation';
 import { postColor } from '../../actions';
 import './Header.css';
 import Strings from '../Strings.js';
+import { isPromise } from 'q';
 
 class Header extends Component {
   state = {
@@ -14,6 +16,15 @@ class Header extends Component {
     tagsholder: `${Strings('tag_placeholder')}`,
     inputStyle: 'input',
     errorMessage: '',
+    displayColorPicker: false,
+  };
+
+  handleClick = () => {
+    this.setState({ displayColorPicker: !this.state.displayColorPicker });
+  };
+
+  handleClose = () => {
+    this.setState({ displayColorPicker: false });
   };
 
   handleInputChange = event => {
@@ -59,7 +70,15 @@ class Header extends Component {
         />
         <Button onClick={this.handleColorClick}>></Button>
         {Strings('picker_text')}
-        <Palette />
+        <i className="material-icons" onClick={this.handleClick}>
+          palette
+        </i>
+        {this.state.displayColorPicker ? (
+          <div className="picker-popover">
+            <div className="picker-cover" onClick={this.handleClose} />
+            <ChromePicker color={this.state.color} />
+          </div>
+        ) : null}
       </div>
     );
   }

@@ -13,3 +13,25 @@
   background-color: #e3e5e7;
   z-index: 1;
 }
+
+i {
+  margin: 0.5em;
+}
+
+i:hover {
+  color: #f3f3f3;
+  cursor: pointer;
+}
+
+.picker-cover {
+  position: absolute;
+  z-index: 2;
+}
+
+.picker-popover {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 80vw;
+}
