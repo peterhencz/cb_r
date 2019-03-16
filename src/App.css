@@ -46,3 +46,7 @@ h3 {
   justify-content: center;
   text-align: center;
 }
+
+.error {
+  border-bottom: 1px solid #d30f00;
+}

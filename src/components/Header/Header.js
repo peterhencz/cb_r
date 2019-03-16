@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Palette from '@material-ui/icons/Palette';
+
 import { ChromePicker } from 'react-color';
 import Input from '../Input/Input.js';
 import Button from '../Button/Button.js';
@@ -8,15 +8,15 @@ import { inputValidChecker } from '../InputValidation';
 import { postColor } from '../../actions';
 import './Header.css';
 import Strings from '../Strings.js';
-import { isPromise } from 'q';
 
 class Header extends Component {
   state = {
     color: '',
     tagsholder: `${Strings('tag_placeholder')}`,
-    inputStyle: 'input',
+    colorInputStyle: 'input',
     errorMessage: '',
     displayColorPicker: false,
+    colorIsValid: false,
   };
 
   handleClick = () => {
@@ -28,22 +28,16 @@ class Header extends Component {
   };
 
   handleInputChange = event => {
-    const errorMessages = {
-      hex: 'kiscica',
-    };
-    const checkerOutput = inputValidChecker(event.target.name, event.target.value, errorMessages);
+    const checkerOutput = inputValidChecker(event.target.name, event.target.value);
     this.setState(prevState => {
       return {
         ...prevState,
         ...checkerOutput,
       };
     });
-    this.setState(
-      {
-        [event.target.name]: event.target.value,
-      },
-      console.log(event.target.name, event.target.value)
-    );
+    this.setState({
+      [event.target.name]: event.target.value,
+    });
   };
 
   handleColorClick = color => {
@@ -52,23 +46,30 @@ class Header extends Component {
 
   render() {
     console.log('this.state: ', this.state);
+    console.log('colorinputstyle: ', this.state.colorInputStyle);
+    console.log('buttonClass: ', this.state.buttonClass);
     return (
       <div className="header">
         {Strings('save_color')}
         <Input
-          input-style={this.state.inputStyle}
+          inputStyle={this.state.colorInputStyle}
           name="color"
           placeholder={Strings('hexcode')}
           onChange={this.handleInputChange}
         />
         {Strings('with_tags')}
         <Input
-          input-style={this.state.inputStyle}
+          inputStyle={this.state.inputStyle}
           name="tag"
           placeholder={this.state.tagsholder}
           onChange={this.handleInputChange}
         />
-        <Button onClick={this.handleColorClick}>></Button>
+        <Button
+          onClick={this.handleColorClick}
+          className={this.state.buttonClass}
+          disabled={!this.state.colorIsValid}>
+          >
+        </Button>
         {Strings('picker_text')}
         <i className="material-icons" onClick={this.handleClick}>
           palette

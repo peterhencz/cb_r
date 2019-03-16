@@ -4,8 +4,7 @@ import { BASE_URL } from '../utilities/constants';
 export const postColor = color => dispatch => {
   const url = `${BASE_URL}/all`;
   const body = JSON.stringify({ color: color });
-  console.log('colorAction');
-  console.log(url);
+
   fetch(url, {
     mode: 'cors',
     method: 'post',
@@ -23,7 +22,6 @@ export const postColor = color => dispatch => {
 };
 
 export const getColors = () => {
-  console.log('getColors');
   const url = `${BASE_URL}/all`;
   return dispatch => {
     return fetch(url)

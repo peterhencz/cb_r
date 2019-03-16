@@ -1,31 +1,30 @@
-const inputValidChecker = (id, value, errorMessage) => {
+const inputValidChecker = (id, value) => {
+  console.log('id: ', id, 'value: ', value);
   const validationRule = {
-    hex: /^(?=.{5,})([^0-9]*)+$/.test(value),
+    color: /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/.test(value),
     email: /^[a-z0-9]+[.]?[a-z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(value),
     password: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})/.test(value),
   };
   if (validationRule[id]) {
     return onSuccess(id, value);
   } else {
-    return onError(id, errorMessage[id]);
+    return onError(id);
   }
 };
 
-const onError = (id, errorMessage) => {
+const onError = id => {
+  console.log('onError: ', id);
   return {
-    errorMessage,
-    errorClass: 'error-message',
     [id + 'IsValid']: false,
-    [id + 'InputStyle']: 'input error',
+    [id + 'InputStyle']: 'input error-border',
   };
 };
 
 const onSuccess = (id, value) => {
-  console.log(id, value);
+  console.log('onSuccess:', id, value);
   return {
     id,
     [id]: value,
-    errorMessage: '',
     [id + 'IsValid']: true,
     [id + 'InputStyle']: 'input',
   };

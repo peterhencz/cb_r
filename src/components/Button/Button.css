@@ -16,5 +16,7 @@ button:hover {
   outline: none;
 }
 
-button:focus {
+button:hover > .button-disabled {
+  background: #000;
+  cursor: default;
 }
