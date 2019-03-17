@@ -28,6 +28,13 @@
   cursor: grabbing;
 }
 
+.color-items-menu {
+  display: flex;
+  flex-flow: row wrap;
+  flex-direction: row;
+  justify-content: center;
+}
+
 .item-hexcode {
   padding: 1vw;
   margin: 0.8vw;
@@ -41,6 +48,11 @@
   animation: bogyo 10s ease-in-out alternate infinite;
 }
 
+.margin-button {
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
 /* @keyframes bogyo {
   50% {
     border-radius: 86px 98px 108px 80px / 112px 89px 94px 101px;

@@ -1,7 +1,7 @@
 const inputValidChecker = (id, value) => {
   console.log('id: ', id, 'value: ', value);
   const validationRule = {
-    color: /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/.test(value),
+    color: /^([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/.test(value),
     email: /^[a-z0-9]+[.]?[a-z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(value),
   };
   if (validationRule[id]) {

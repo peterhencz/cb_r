@@ -41,7 +41,7 @@ class Header extends Component {
   };
 
   handleColorClick = color => {
-    this.props.postColor(this.state.color);
+    this.props.postColor('#' + this.state.color);
   };
 
   render() {
@@ -56,7 +56,6 @@ class Header extends Component {
           onChange={this.handleInputChange}
         />
         {Strings('with_tags')}
-
         <Input
           inputStyle="input"
           name="tag"
