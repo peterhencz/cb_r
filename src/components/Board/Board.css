@@ -1,5 +1,5 @@
 .board {
-  height: 100vh;
+  height: auto;
   margin: 5em;
   /* padding-top: 5em; */
   display: flex;

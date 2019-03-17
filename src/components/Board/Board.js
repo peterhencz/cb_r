@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-// import { getColors } from '../../actions/colorAction';
+import Draggable from 'react-draggable';
 import { getColors } from '../../actions/colorAction';
 import './Board.css';
 
@@ -23,9 +23,11 @@ class Board extends Component {
       return Object.entries(colors)
         .sort((a, b) => b[0] - a[0])
         .map(([_id, colors], id) => (
-          <div>
-            <Card id={_id} color={colors.color} />
-          </div>
+          <Draggable bounds="parent">
+            <div>
+              <Card id={_id} color={colors.color} />
+            </div>
+          </Draggable>
         ));
     } else {
       console.log('loading');
