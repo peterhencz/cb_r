@@ -13,6 +13,7 @@ class Header extends Component {
   state = {
     color: '',
     tagsholder: `${Strings('tag_placeholder')}`,
+    inputStyle: 'input',
     colorInputStyle: 'input',
     errorMessage: '',
     displayColorPicker: false,

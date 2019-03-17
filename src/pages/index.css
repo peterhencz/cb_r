@@ -1,0 +1,6 @@
+.form {
+  display: grid;
+  height: 100vh;
+  margin: 0;
+  place-items: center center;
+}
