@@ -3,8 +3,9 @@ import './Card.css';
 
 class Card extends Component {
   state = {
-    margin: '1em',
+    cardStyle: 'card',
     bg: '#fff',
+    id: '',
   };
 
   bogyoFullSize = () => {
@@ -21,20 +22,23 @@ class Card extends Component {
 
   plusSize = () => {
     this.setState({
-      margin: '10em',
+      cardStyle: 'card',
     });
   };
 
   minusSize = () => {
     this.setState({
-      margin: '1em',
+      cardStyle: 'card-mini',
+      id: 'card-mini',
     });
   };
 
   render() {
     return (
-      <div className="card" style={{ background: this.state.bg, margin: this.state.margin }}>
-        <div class="color-items-menu">
+      <div
+        className={this.state.cardStyle}
+        style={{ background: this.state.bg, margin: this.state.margin }}>
+        <div className="color-items-menu">
           <p className="margin-button" onClick={this.plusSize}>
             +
           </p>
@@ -44,7 +48,7 @@ class Card extends Component {
         </div>
         <div
           className="item-hexcode"
-          onClick={this.bogyoFullSize}
+          onDoubleClick={this.bogyoFullSize}
           style={{ background: this.props.color }}
         />
         <h1>{this.props.color}</h1>
