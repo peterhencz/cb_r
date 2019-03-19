@@ -20,11 +20,15 @@ class Header extends Component {
     colorIsValid: false,
   };
 
-  handleClick = () => {
+  randomTagPlaceholder() {
+    const placeholders = [];
+  }
+
+  openPicker = () => {
     this.setState({ displayColorPicker: !this.state.displayColorPicker });
   };
 
-  handleClose = () => {
+  closePicker = () => {
     this.setState({ displayColorPicker: false });
   };
 
@@ -41,7 +45,7 @@ class Header extends Component {
     });
   };
 
-  handleColorClick = color => {
+  handlePostColorClick = color => {
     this.props.postColor('#' + this.state.color);
   };
 
@@ -64,18 +68,18 @@ class Header extends Component {
           onChange={this.handleInputChange}
         />
         <Button
-          onClick={this.handleColorClick}
+          onClick={this.handlePostColorClick}
           className={buttonClass}
           disabled={!this.state.colorIsValid}>
           >
         </Button>
         {Strings('picker_text')}
-        <i className="material-icons" onClick={this.handleClick}>
+        <i className="material-icons" onClick={this.openPicker}>
           palette
         </i>
         {this.state.displayColorPicker ? (
           <div className="picker-popover">
-            <div className="picker-cover" onClick={this.handleClose} />
+            <div className="picker-cover" onClick={this.closePicker} />
             <ChromePicker color={this.state.color} />
           </div>
         ) : null}

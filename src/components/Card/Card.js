@@ -8,7 +8,7 @@ class Card extends Component {
     id: '',
   };
 
-  bogyoFullSize = () => {
+  fillCardWithColor = () => {
     if (this.state.bg === '#fff') {
       this.setState({
         bg: this.props.color,
@@ -48,7 +48,7 @@ class Card extends Component {
         </div>
         <div
           className="item-hexcode"
-          onDoubleClick={this.bogyoFullSize}
+          onDoubleClick={this.fillCardWithColor}
           style={{ background: this.props.color }}
         />
         <h1>{this.props.color}</h1>

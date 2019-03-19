@@ -23,12 +23,12 @@ i:hover {
   cursor: pointer;
 }
 
-.picker-cover {
+.picker-popover {
   position: absolute;
-  z-index: 2;
+  z-index: 40;
 }
 
-.picker-popover {
+.picker-cover {
   position: fixed;
   top: 0px;
   right: 0px;
