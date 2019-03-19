@@ -25,7 +25,7 @@ i:hover {
 
 .picker-popover {
   position: absolute;
-  z-index: 40;
+  z-index: 2;
 }
 
 .picker-cover {

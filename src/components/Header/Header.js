@@ -20,9 +20,21 @@ class Header extends Component {
     colorIsValid: false,
   };
 
-  randomTagPlaceholder() {
-    const placeholders = [];
+  componentDidMount() {
+    this.randomTagPlaceholder();
   }
+
+  randomTagPlaceholder = () => {
+    const placeholders = [
+      'tag_placeholder_1',
+      'tag_placeholder_2',
+      'tag_placeholder_3',
+      'tag_placeholder_4',
+      'tag_placeholder_5',
+    ];
+    const tag_placeholder = Math.floor(Math.random() * placeholders.length);
+    this.setState({ tagsholder: `${Strings(`${placeholders[tag_placeholder]}`)}` });
+  };
 
   openPicker = () => {
     this.setState({ displayColorPicker: !this.state.displayColorPicker });
