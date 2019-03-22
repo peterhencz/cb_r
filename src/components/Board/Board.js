@@ -10,19 +10,11 @@ import Card from '../Card/Card';
 class Board extends Component {
   constructor() {
     super();
-    this.state = {
-      dataZ: 0,
-    };
+    this.state = {};
   }
 
   componentDidMount() {
     this.props.getColors();
-  }
-
-  setCardOnTop() {
-    this.setState({
-      dataZ: this.state.dataZ + 1,
-    });
   }
 
   renderColors(colors) {
@@ -30,9 +22,9 @@ class Board extends Component {
       return Object.entries(colors)
         .sort((a, b) => b[0] - a[0])
         .map(([_id, colors], id) => (
-          <Draggable bounds="parent" onMouseDown={dataZ => this.setCardOnTop()}>
+          <Draggable bounds="parent">
             <div>
-              <Card id={_id} color={colors.color} dataZ={this.state.dataZ} />
+              <Card id={_id} color={colors.color} />
             </div>
           </Draggable>
         ));
@@ -43,11 +35,7 @@ class Board extends Component {
 
   render() {
     const { colors } = this.props;
-    return (
-      <div className="board" dataZ={this.state.dataZ}>
-        {this.renderColors(colors)}
-      </div>
-    );
+    return <div className="board">{this.renderColors(colors)}</div>;
   }
 }
 

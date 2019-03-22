@@ -8,6 +8,7 @@ class Card extends Component {
       cardStyle: 'card',
       bg: '#fff',
       id: '',
+      dataZ: 0,
     };
   }
 
@@ -36,14 +37,22 @@ class Card extends Component {
     });
   };
 
+  setCardOnTop = () => {
+    console.log();
+    this.setState({
+      dataZ: this.state.dataZ + 1,
+    });
+  };
+
   render() {
     const { cardStyle, bg, margin } = this.state;
-    console.log('props: ', this.props.dataZ);
+    console.log('props: ', this.state.dataZ);
 
     return (
       <div
         className={cardStyle}
-        style={{ background: bg, margin: margin, zIndex: this.props.dataZ }}>
+        onMouseDown={this.setCardOnTop}
+        style={{ background: bg, margin: margin, zIndex: this.state.dataZ }}>
         <div className="color-items-menu">
           <p className="margin-button" onClick={this.plusSize}>
             +
