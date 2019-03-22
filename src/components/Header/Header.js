@@ -12,7 +12,7 @@ import Strings from '../Strings.js';
 class Header extends Component {
   state = {
     color: '',
-    tagsholder: `${Strings('tag_placeholder')}`,
+    tagsholder: '',
     inputStyle: 'input',
     colorInputStyle: 'input',
     errorMessage: '',

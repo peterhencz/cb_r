@@ -2,11 +2,14 @@ import React, { Component } from 'react';
 import './Card.css';
 
 class Card extends Component {
-  state = {
-    cardStyle: 'card',
-    bg: '#fff',
-    id: '',
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      cardStyle: 'card',
+      bg: '#fff',
+      id: '',
+    };
+  }
 
   fillCardWithColor = () => {
     if (this.state.bg === '#fff') {
@@ -34,10 +37,13 @@ class Card extends Component {
   };
 
   render() {
+    const { cardStyle, bg, margin } = this.state;
+    console.log('props: ', this.props.dataZ);
+
     return (
       <div
-        className={this.state.cardStyle}
-        style={{ background: this.state.bg, margin: this.state.margin }}>
+        className={cardStyle}
+        style={{ background: bg, margin: margin, zIndex: this.props.dataZ }}>
         <div className="color-items-menu">
           <p className="margin-button" onClick={this.plusSize}>
             +
