@@ -24,10 +24,10 @@ i:hover {
 }
 
 .picker-popover {
-  top: 1em;
-  left: 65em;
-  position: absolute;
-  z-index: 2;
+  top: 0;
+  left: 0;
+  position: fixed;
+  z-index: 200;
 }
 
 .picker-cover {
