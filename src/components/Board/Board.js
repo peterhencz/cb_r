@@ -8,40 +8,32 @@ import './Board.css';
 import Card from '../Card/Card';
 
 class Board extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {};
+    console.log(props);
   }
 
   componentDidMount() {
     this.props.getColors();
   }
-
-  componentDidUpdate(prevState) {
-    if (prevState.colors !== this.state.colors) {
-      this.renderColors();
-    }
-  }
+  setCardOnTop = () => {
+    this.setState(
+      {
+        dataZ: this.state.dataZ + 1,
+      },
+      console.log('kiscica', this.state.dataZ)
+    );
+  };
 
   renderColors(colors) {
     if (colors) {
       return Object.entries(colors)
         .sort((a, b) => b[0] - a[0])
         .map(([_id, colors], id) => (
-          <Draggable>
-            <div>
-              <Card
-                id={colors._id}
-                color={colors.color}
-                zIndex={0}
-                style={{
-                  background: this.props.bg,
-                  margin: this.props.margin,
-                  zIndex: this.props.zIndex,
-                }}
-              />
-            </div>
-          </Draggable>
+          <div>
+            <Card id={colors._id} color={colors.color} />
+          </div>
         ));
     } else {
       console.log('loading');
@@ -49,6 +41,7 @@ class Board extends Component {
   }
 
   render() {
+    console.log(this.props.dataZ);
     const { colors } = this.props;
     return <div className="board">{this.renderColors(colors)}</div>;
   }

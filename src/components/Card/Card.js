@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Draggable from 'react-draggable';
 import './Card.css';
 
 class Card extends Component {
@@ -8,8 +9,8 @@ class Card extends Component {
       cardStyle: 'card',
       bg: '#fff',
       id: '',
-      zIndex: 0,
       dataZ: 0,
+      zIndex: 0,
     };
   }
 
@@ -39,35 +40,32 @@ class Card extends Component {
   };
 
   setCardOnTop = () => {
-    this.setState(
-      {
-        dataZ: this.state.zIndex + 1,
-      },
-      console.log('kiscica', this.state.dataZ)
-    );
+    this.setState({ zIndex: this.state.zIndex + 1 }, console.log('kiscica', this.state.zIndex));
   };
 
   render() {
-    const { cardStyle, bg } = this.state;
-    console.log('props: ', this.state);
-
+    const { cardStyle, bg, zIndex, dataZ } = this.state;
+    console.log('props: ', this.props);
+    console.log('zindex: ', zIndex, 'dataZ: ', dataZ);
     return (
-      <div className={cardStyle} style={{ background: bg }} onMouseDown={this.setCardOnTop}>
-        <div className="color-items-menu">
-          <p className="margin-button" onClick={this.plusSize}>
-            +
-          </p>
-          <p className="margin-button" onClick={this.minusSize}>
-            -
-          </p>
+      <Draggable onMouseDown={this.setCardOnTop}>
+        <div className={cardStyle} style={{ background: bg, zIndex: zIndex }}>
+          <div className="color-items-menu">
+            <p className="margin-button" onClick={this.plusSize}>
+              +
+            </p>
+            <p className="margin-button" onClick={this.minusSize}>
+              -
+            </p>
+          </div>
+          <div
+            className="item-hexcode"
+            onDoubleClick={this.fillCardWithColor}
+            style={{ background: this.props.color }}
+          />
+          <h1>{this.props.color}</h1>
         </div>
-        <div
-          className="item-hexcode"
-          onDoubleClick={this.fillCardWithColor}
-          style={{ background: this.props.color }}
-        />
-        <h1>{this.props.color}</h1>
-      </div>
+      </Draggable>
     );
   }
 }
