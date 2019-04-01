@@ -17,14 +17,29 @@ class Board extends Component {
     this.props.getColors();
   }
 
+  componentDidUpdate(prevState) {
+    if (prevState.colors !== this.state.colors) {
+      this.renderColors();
+    }
+  }
+
   renderColors(colors) {
     if (colors) {
       return Object.entries(colors)
         .sort((a, b) => b[0] - a[0])
         .map(([_id, colors], id) => (
-          <Draggable bounds="parent">
+          <Draggable>
             <div>
-              <Card id={_id} color={colors.color} />
+              <Card
+                id={colors._id}
+                color={colors.color}
+                zIndex={0}
+                style={{
+                  background: this.props.bg,
+                  margin: this.props.margin,
+                  zIndex: this.props.zIndex,
+                }}
+              />
             </div>
           </Draggable>
         ));

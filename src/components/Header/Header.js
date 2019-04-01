@@ -58,10 +58,15 @@ class Header extends Component {
   };
 
   handlePostColorClick = color => {
-    this.props.postColor('#' + this.state.color);
+    this.props.postColor(this.state.color);
+  };
+
+  handleChangeComplete = color => {
+    this.setState({ color: color.hex });
   };
 
   render() {
+    console.log(this.state.color);
     const buttonClass = this.state.colorIsValid ? 'button ' : 'button button-disabled';
     return (
       <div className="header">
@@ -71,6 +76,7 @@ class Header extends Component {
           name="color"
           placeholder={Strings('hexcode')}
           onChange={this.handleInputChange}
+          value={this.state.color}
         />
         {Strings('with_tags')}
         <Input
@@ -92,7 +98,7 @@ class Header extends Component {
         {this.state.displayColorPicker ? (
           <div className="picker-popover">
             <div className="picker-cover" onClick={this.closePicker} />
-            <ChromePicker color={this.state.color} />
+            <ChromePicker color={this.state.color} onChangeComplete={this.handleChangeComplete} />
           </div>
         ) : null}
       </div>
